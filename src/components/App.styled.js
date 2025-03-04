@@ -46,7 +46,6 @@ export const Link = styled(NavLink)`
 
   &.active {
     color: white;
-    background-color: black;
   }
 
   &:hover {
