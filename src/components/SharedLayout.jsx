@@ -1,10 +1,9 @@
-import { Suspense, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import styled from 'styled-components';
 import '../components/App.scss';
-import LogoM8 from '../img/logo.svg';
+import Logo from '../img/logo.svg';
 import { Load } from '../pages/feauters/loading/Load.jsx';
-import { Footer } from './../pages/Footer/Footer.jsx';
 import { Container, Link, NewContainer } from './App.styled';
 import BtnScrollUp from './BtnScrollUp/BtnScrollUp';
 
@@ -21,11 +20,12 @@ const Img = styled.img`
   height: 100%;
 `;
 
-const H1 = styled.h1`
-  padding-left: 30px;
-  font-size: 56px;
-  color: rgb(124, 16, 119);
-`;
+// const H1 = styled.h1`
+//   font-style: italic;
+//   padding-left: 30px;
+//   font-size: 56px;
+//   color: rgb(124, 16, 119);
+// `;
 
 const BurgerButton = styled.button`
   background: none;
@@ -37,6 +37,8 @@ const BurgerButton = styled.button`
 
   @media (max-width: 768px) {
     display: block;
+    right: 40px;
+    position: fixed;
   }
 `;
 
@@ -64,20 +66,48 @@ const NavLinks = styled.nav`
 export const SharedLayout = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+  useEffect(() => {
+    const handleScrollClick = event => {
+      const target = event.target.getAttribute('data-scroll');
+      if (target) {
+        event.preventDefault();
+        const scrollToElement = document.getElementById(target);
+        if (scrollToElement) {
+          scrollToElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start',
+          });
+        }
+      }
+    };
+
+    const scrollLinks = document.querySelectorAll('[data-scroll]');
+    scrollLinks.forEach(link => {
+      link.addEventListener('click', handleScrollClick);
+    });
+
+    return () => {
+      scrollLinks.forEach(link => {
+        link.removeEventListener('click', handleScrollClick);
+      });
+    };
+  }, []);
+
   return (
     <Container>
       <NewContainer>
         <HeaderContainer>
           <Link to="/" className="logo">
-            <Img src={LogoM8} alt="logo" />
-            <H1>Chic</H1>
+            <Img src={Logo} alt="logo" />
+            {/* <H1>Chic</H1> */}
           </Link>
           <BurgerButton onClick={() => setIsOpen(!isOpen)}>
             {isOpen ? '✖' : '☰'}
           </BurgerButton>
           <NavLinks isOpen={isOpen}>
-            <Link to="/about">Про нас</Link>
-            <Link to="/products">Наші послуги</Link>
+            <Link data-scroll="about">Про нас</Link>
+            <Link data-scroll="services">Наші послуги</Link>
+            <Link data-scroll="contact">Контакти</Link>
           </NavLinks>
         </HeaderContainer>
         <Suspense fallback={<Load />}>
@@ -85,7 +115,6 @@ export const SharedLayout = () => {
         </Suspense>
         <BtnScrollUp />
       </NewContainer>
-      <Footer />
     </Container>
   );
 };
