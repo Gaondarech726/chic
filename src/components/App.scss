@@ -1,0 +1,38 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: rgb(238, 202, 60);
+  color: inherit;
+  overflow-x: hidden;
+}
+::-webkit-scrollbar {
+  background-color: rgb(238, 202, 60);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(238, 202, 60);
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(238, 202, 60);
+}
+
+.logo {
+  background-color: transparent !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.map-container {
+  height: 500px;
+  width: 100%;
+}
+
+.hsss {
+  color: #bd1e2c;
+  font-size: 200px;
+}

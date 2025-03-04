@@ -1,0 +1,58 @@
+/* Общие стили для меню */
+.bm-menu-wrap {
+  position: fixed;
+  height: 100%;
+}
+
+/* Контейнер меню */
+.bm-menu {
+  background: #222;
+  padding: 2rem;
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Кнопка бургер-меню */
+.bm-burger-button {
+  position: fixed;
+  width: 36px;
+  height: 30px;
+}
+
+/* Линии бургера */
+.bm-burger-bars {
+  background: #fff;
+}
+
+/* Стили для крестика (закрытия меню) */
+.bm-cross-button {
+  height: 24px;
+  width: 24px;
+}
+
+.bm-cross {
+  background: #fff;
+}
+
+/* Стили ссылок внутри меню */
+.bm-item-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.bm-item {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.bm-item:hover {
+  color: #f8c03e;
+}
+
+/* Затемнение фона при открытом меню */
+.bm-overlay {
+  background: rgba(0, 0, 0, 0.5);
+}
