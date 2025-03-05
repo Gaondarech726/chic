@@ -1,58 +1,57 @@
-import { A11y, Autoplay } from 'swiper/modules';
-
+import { A11y, Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import 'swiper/css';
-
+import 'swiper/css/navigation';
 import './slider.scss';
-
-import Five from '../../img/slider/photoFive.png';
-import Four from '../../img/slider/photoFour.jpeg';
-import One from '../../img/slider/photoOne.jpg';
-import Three from '../../img/slider/photoThree.jpg';
-import Two from '../../img/slider/photoTwo.jpg';
 
 import { useMediaQuery } from '@mui/material';
 
+const Man = require('../../img/slider/Man.png');
+const Ped = require('../../img/slider/Ped.jpg');
+const Far = require('../../img/slider/Far.jpg');
+const Str = require('../../img/slider/Str.jpg');
+
 const Slider = () => {
   const isSmallScreen = useMediaQuery('(max-width: 768px)');
+
   return (
     <section className="slider">
       <Swiper
-        modules={[A11y, Autoplay]}
+        modules={[A11y, Pagination, Navigation]}
         slidesPerView={isSmallScreen ? 1 : 3}
         spaceBetween={52}
         centeredSlides={true}
         loop={true}
-        autoplay={{
-          delay: 2000,
-          disableOnInteraction: false,
+        centeredSlidesBounds={true}
+        pagination={{
+          clickable: true,
         }}
+        navigation={true}
         className="custom-swiper-slider"
       >
         <SwiperSlide>
           <div className="slide">
-            <img src={One} alt="PhotoOne" />
+            <p>Манікюр</p>
+            <img src={Man} alt="Манікюр" />
           </div>
         </SwiperSlide>
         <SwiperSlide>
           <div className="slide">
-            <img src={Two} alt="PhotoTwo" />
+            <p>Педикюр</p>
+            <img src={Ped} alt="Педикюр" />
           </div>
         </SwiperSlide>
         <SwiperSlide>
           <div className="slide">
-            <img src={Three} alt="PhotoThree" />
+            <p>Стрижки</p>
+            <img src={Str} alt="Стрижка" />
           </div>
         </SwiperSlide>
         <SwiperSlide>
           <div className="slide">
-            <img src={Four} alt="PhotoFour" />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="slide">
-            <img src={Five} alt="PhotoFive" />
+            <p>Фарбування</p>
+            <img src={Far} alt="Фарбування" />
           </div>
         </SwiperSlide>
       </Swiper>

@@ -3,8 +3,18 @@
   display: flex;
   justify-content: center;
   margin: 50px 0 50px 0;
+  .swiper-button-prev,
+  .swiper-button-next {
+    color: #000;
+  }
+  p {
+    font-size: 28px;
+    text-align: center;
+
+    padding-bottom: 20px;
+  }
   .custom-swiper-slider {
-    width: 928px;
+    width: 80vw;
     .swiper-slide {
       display: flex;
       justify-content: center;
@@ -14,8 +24,8 @@
 
     .swiper-slide img {
       border-radius: 0;
-      width: 310px;
-      height: 184px;
+      width: 300px;
+      height: auto;
     }
 
     .swiper-slide-prev,
