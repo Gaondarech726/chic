@@ -5,15 +5,11 @@ export const Container = styled.div`
   body {
     background: black;
   }
-  margin: 0 auto;
-  padding: 0 16px;
 `;
 export const NewContainer = styled.div`
   body {
     background: black;
   }
-  margin: 0 auto;
-  padding: 0 16px;
 `;
 
 export const Header = styled.header`
