@@ -5,6 +5,7 @@ import Services from './Services';
 
 export const Main = styled.main`
   margin-top: 50px;
+  width: 100vw;
 `;
 
 export const P = styled.p`
@@ -23,9 +24,13 @@ export const H1 = styled.h1`
   align-items: center;
   color: rgb(124, 16, 119);
   padding-bottom: 50px;
-  font-size: 54px;
+  font-size: 58px;
+  text-align: center;
   @media (max-width: 768px) {
     font-size: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 `;
 
@@ -37,16 +42,15 @@ export const H2 = styled.h2`
 const Home = () => {
   return (
     <Main>
-      <H1>CHIC - місце, де народжується краса</H1>
+      <H1 id="about">CHIC - місце, де народжується краса</H1>
 
       <P>
         <br />
       </P>
 
-      <Contact></Contact>
       <About></About>
-      <Contact></Contact>
       <Services></Services>
+      <Contact></Contact>
     </Main>
   );
 };
